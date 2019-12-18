@@ -1,0 +1,24 @@
+package com.webcorestone.DMS.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.webcorestone.DMS.daoI.StudentDaoI;
+import com.webcorestone.DMS.model.StudentDetails;
+
+@Service
+public class MedicalStudentServiceImpl  {
+	
+	@Autowired
+	StudentDaoI stuI;
+	
+	public String saveData(StudentDetails s)
+	{
+		
+		stuI.save(s);
+		return null;
+		
+		
+	}
+
+}

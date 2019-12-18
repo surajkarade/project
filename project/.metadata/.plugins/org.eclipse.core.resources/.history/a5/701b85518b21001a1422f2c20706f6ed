@@ -1,0 +1,51 @@
+package com.webcorestone.DMS.controller;
+
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.webcorestone.DMS.model.StudentDetails;
+import com.webcorestone.DMS.serviceI.MedicalStudentServiceI;
+
+@RestController
+public class StudentController {
+
+	@Autowired
+	
+	MedicalStudentServiceI ms;
+
+	@RequestMapping(value = "/reg")
+	public String register(@RequestBody StudentDetails s)
+	{
+		ms.saveData(s);
+		
+		return "success";
+	}
+	
+	@RequestMapping(value = "/log/{email}/{dob}")
+	public String login(@PathVariable("email") String email,@PathVariable ("dob") Date dob)
+	{
+		StudentDetails s=ms.LoginCheck(email, dob);
+		return "s";
+	}
+	
+	@RequestMapping(value = "/upd")
+	public String upate()
+	{
+		return "success";
+	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public String delete(@PathVariable("id") Integer id)
+	{
+		ms.deleteData(id);
+		return "success";
+	}
+	
+	
+	
+}

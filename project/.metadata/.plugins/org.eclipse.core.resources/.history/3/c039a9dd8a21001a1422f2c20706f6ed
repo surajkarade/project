@@ -1,0 +1,31 @@
+package com.webcorestone.DMS.serviceImpl;
+
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.webcorestone.DMS.daoI.StudentDaoI;
+import com.webcorestone.DMS.model.StudentDetails;
+
+@Service
+public class MedicalStudentServiceImpl  {
+	
+	@Autowired
+	StudentDaoI stuI;
+	
+	public String saveData(StudentDetails s)
+	{
+		
+		stuI.save(s);
+		return null;
+	}
+	
+	public StudentDetails LoginCheck(String email,Date dob)
+	{
+		StudentDetails s=(StudentDetails) stuI.findAllByEmailAndDob(email, dob);
+		return s;
+		
+	}
+
+}

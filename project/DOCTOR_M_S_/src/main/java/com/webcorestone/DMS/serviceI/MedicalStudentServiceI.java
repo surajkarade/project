@@ -1,0 +1,14 @@
+package com.webcorestone.DMS.serviceI;
+
+import java.util.Date;
+
+import com.webcorestone.DMS.model.StudentDetails;
+
+public interface MedicalStudentServiceI {
+
+	public String saveData(StudentDetails s);
+	
+	public StudentDetails LoginCheck(String email,Date dob);
+	
+	public void deleteData(Integer id);
+}

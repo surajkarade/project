@@ -1,0 +1,8 @@
+package com.webcorestone.DMS.daoImpl;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+public class StudentDaoImpl extends cru
+{
+
+}
